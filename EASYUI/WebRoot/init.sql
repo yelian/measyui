@@ -6,6 +6,7 @@ create table menu(
 	create_time date not null,
 	primary key (id)
 )
+--for mysql
 alter table menu modify column name varchar(100);
 insert into menu(id, code, parent_code, name, create_time) values ('ijkae900w', 'ROOT', null, 'root', now());
 insert into menu(id, code, parent_code, name, create_time) values ('ijkae900www', 'c1', 'ROOT', 'node1', now());
