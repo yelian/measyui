@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="menu">
+	<resultMap class="com.measyui.entity.MenuPo" id="MenuPo">
+		<result column="ID" property="id"></result>
+		<result column="CODE" property="code"></result>
+		<result column="PARENT_CODE" property="parentCode"></result>
+		<result column="NAME" property="name"></result>
+		<result column="CREATE_TIME" property="createTime"></result>
+	</resultMap>
+	<select id="getMenu" resultMap="MenuPo">
+		<![CDATA[
+			select * from menu
+		]]>
+	</select>
+</sqlMap>
