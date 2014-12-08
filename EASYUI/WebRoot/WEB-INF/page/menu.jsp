@@ -14,64 +14,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
 	<div class="easyui-panel" style="width:100%; height:100%; border:false">
 		<!-- <ul class="easyui-tree" data-options="url:'tree_data1.json',method:'get',animate:true"></ul> -->
-		<ul id="tt" class="easyui-tree">  
-		    <li>  
-		        <span>Folder</span>  
-		        <ul>  
-		            <li>  
-		                <span>Sub Folder 1</span>  
-		                <ul>  
-		                    <li>  
-		                        <span><a href="#">File 11</a></span>  
-		                    </li>  
-		                    <li>  
-		                        <span>File 12</span>  
-		                    </li>  
-		                    <li>  
-		                        <span>File 13</span>  
-		                    </li>  
-		                </ul>  
-		            </li>  
-		            <li>  
-		                <span>File 2</span>  
-		            </li>  
-		            <li>  
-		                <span>File 3</span>  
-		            </li>  
-		        </ul>  
-		    </li>  
-		    <li>  
-		        <span>File21</span>  
-		    </li>  
-		    <li>  
-		        <span>Folder</span>  
-		        <ul>  
-		            <li>  
-		                <span>Sub Folder 1</span>  
-		                <ul>  
-		                    <li>  
-		                        <span><a href="#">File 11</a></span>  
-		                    </li>  
-		                    <li>  
-		                        <span>File 12</span>  
-		                    </li>  
-		                    <li>  
-		                        <span>File 13</span>  
-		                    </li>  
-		                </ul>  
-		            </li>  
-		            <li>  
-		                <span>File 2</span>  
-		            </li>  
-		            <li>  
-		                <span>File 3</span>  
-		            </li>  
-		        </ul>  
-		    </li>  
-		    <li>  
-		        <span>File21</span>  
-		    </li>  
-		</ul>  
+		<ul id="tt" class="easyui-tree" data-options="animate:true, url:'menutree.do'"></ul>  
 	</div>
   </body>
 </html>

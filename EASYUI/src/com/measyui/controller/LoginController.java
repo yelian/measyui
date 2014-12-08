@@ -1,13 +1,17 @@
 package com.measyui.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.measyui.entity.MenuPo;
+import com.alibaba.fastjson.JSON;
+import com.measyui.entity.TreeNode;
 import com.measyui.service.MenuService;
 
 @RequestMapping("/login")
@@ -19,7 +23,6 @@ public class LoginController {
 	
 	@RequestMapping("login.do")
 	public String login(){
-		buildMenu();
 		return "main";
 	}
 	
@@ -28,8 +31,11 @@ public class LoginController {
 		return "menu";
 	}
 	
-	private void buildMenu(){
-		List<MenuPo> menus = this.menuService.getAllMenus();
-		
+	@RequestMapping("menutree.do")
+	@ResponseBody
+	public String menutree(HttpServletRequest req){
+		List<TreeNode> nodes = new ArrayList<TreeNode>();
+		nodes.add(this.menuService.getMenuTree());
+		return JSON.toJSONString(nodes);
 	}
 }
