@@ -1,5 +1,6 @@
 package com.measyui.entity;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class MenuPo {
@@ -8,6 +9,14 @@ public class MenuPo {
 	private String code;
 	private String parentCode;
 	private Date createTime;
+	private String createTimeFormat;
+	private String url;
+	public String getUrl() {
+		return url;
+	}
+	public void setUrl(String url) {
+		this.url = url;
+	}
 	public String getId() {
 		return id;
 	}
@@ -31,6 +40,9 @@ public class MenuPo {
 	}
 	public void setCreateTime(Date createTime) {
 		this.createTime = createTime;
+		if(this.createTime != null){
+			this.setCreateTimeFormat(format.format(this.createTime));
+		}
 	}
 	public void setParentCode(String parentCode) {
 		this.parentCode = parentCode;
@@ -38,4 +50,11 @@ public class MenuPo {
 	public String getParentCode() {
 		return parentCode;
 	}
+	public void setCreateTimeFormat(String createTimeFormat) {
+		this.createTimeFormat = createTimeFormat;
+	}
+	public String getCreateTimeFormat() {
+		return createTimeFormat;
+	}
+	private SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 }

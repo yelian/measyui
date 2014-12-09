@@ -6,6 +6,7 @@ import java.util.List;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -18,6 +19,8 @@ import com.measyui.service.MenuService;
 @Controller
 public class LoginController {
 
+	private static final Logger log = Logger.getLogger(LoginController.class);
+	
 	@Resource(name="menuService")
 	private MenuService menuService;
 	
@@ -36,6 +39,7 @@ public class LoginController {
 	public String menutree(HttpServletRequest req){
 		List<TreeNode> nodes = new ArrayList<TreeNode>();
 		nodes.add(this.menuService.getMenuTree());
+		log.debug(nodes);
 		return JSON.toJSONString(nodes);
 	}
 }

@@ -1,5 +1,6 @@
 package com.measyui.entity;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -40,7 +41,10 @@ public class TreeNode {
 		return attributes;
 	}
 	public void setAttributes(Map<String, String> attributes) {
-		this.attributes = attributes;
+		if(this.attributes == null){
+			this.attributes = new HashMap<String, String>();
+		}
+		this.attributes.putAll(attributes);
 	}
 	public List<TreeNode> getChildren() {
 		return children;

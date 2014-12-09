@@ -1,11 +1,14 @@
 package com.measyui.service.impl;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.measyui.dao.MenuDao;
+import com.measyui.entity.DataGrid;
 import com.measyui.entity.MenuPo;
 import com.measyui.entity.TreeNode;
 import com.measyui.service.MenuService;
@@ -28,5 +31,15 @@ public class MenuServiceImpl implements MenuService{
 		return TreeUtil.buildTree(getAllMenus());
 	}
 	
+	public List<MenuPo> getMenus(MenuPo menu, DataGrid dg){
+		Map<String, Object> param = new HashMap<String, Object>();
+		param.put("name", "%"+(menu.getName()==null?"":menu.getName())+"%");
+		param.put("createTimeFormat", menu.getCreateTimeFormat());
+		param.put("start", dg.getStartRows());
+		param.put("end", dg.getEndRows());
+		return this.menuDao.getMenuWithPage(param);
+	}
+	
+	//菜单树
 	private static List<MenuPo> menus = null;
 }

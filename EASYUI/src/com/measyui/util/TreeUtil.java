@@ -1,7 +1,9 @@
 package com.measyui.util;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.measyui.entity.MenuPo;
 import com.measyui.entity.TreeNode;
@@ -40,6 +42,9 @@ public class TreeUtil {
 	private static void MappingTreeNode(MenuPo menu, TreeNode treeNode){
 		treeNode.setText(menu.getName());
 		treeNode.setId(menu.getId());
+		Map<String, String> attrs = new HashMap<String, String>();
+		attrs.put("url", menu.getUrl());
+		treeNode.setAttributes(attrs);
 	}
 	
 	private static TreeNode treeNode = null;

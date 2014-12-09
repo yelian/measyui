@@ -8,10 +8,31 @@ PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2
 		<result column="PARENT_CODE" property="parentCode"></result>
 		<result column="NAME" property="name"></result>
 		<result column="CREATE_TIME" property="createTime"></result>
+		<result column="URL" property="url"></result>
 	</resultMap>
+	
 	<select id="getMenu" resultMap="MenuPo">
-		<![CDATA[
-			select * from menu
-		]]>
+		select menu.* from menu
+	</select>
+	
+	<!--<select id="getMenuWithPage_oracle" resultMap="MenuPo">
+			select * from (select rownum as rn, menu.* from menu where 
+			<isNotNull property="name" > name like #name# and </isNotNull>
+			<isNotNull property="create_time"> create_time = #createTime# and </isNotNull>
+			rownum <= #end#) rn > #start# 
+	</select>
+	
+	-->
+	<select id="getMenuWithPage" resultMap="MenuPo">
+		select menu.* from menu  
+		<dynamic prepend="where">
+			<isNotNull property="name" prepend="and">
+				name like #name#
+			</isNotNull>
+			<isNotNull property="createTimeFormat" prepend="and">
+				create_time=#createTimeFormat#
+			</isNotNull>
+		</dynamic>
+		limit #start#, #end#
 	</select>
 </sqlMap>
