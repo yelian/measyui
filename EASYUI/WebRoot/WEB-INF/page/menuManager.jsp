@@ -8,11 +8,9 @@
 		
 		var param = {};
 		if(name){
-			alert('name:|'+name+'|\n'+'|'+createTime+'|');
 			param.name = name;
 		};
 		if(createTime){
-			alert('createTime:|'+name+'|\n'+'|'+createTime+'|');
 			param.createTime = createTime;
 		}
 		$('#dg').datagrid({
@@ -42,29 +40,26 @@
 	});
 </script>
 <div class="easyui-layout" style="width:100%; height:100%">
-	<form id="ff" method="post" action="../menu/datagrid.do">
-		<div data-options="region:'north',border:true" style="height:90px;padding:1px">
-			<div style="padding:5px 5px 5px 5px">
-		    
-		    	<table style="width:100%;" cellpadding="1" cellspacing="10"	>
-		    		<tr>
-		    			<td style="text-align:right">菜单名</td>
-		    			<td><input class="easyui-textbox" type="text" name="name"></input></td>
-		    			
-		    			<td style="text-align:right">创建时间</td>
-		    			<td><input id="createTime" class="easyui-datebox" name="createTime" type="text"></input></td>
-		    		</tr>
-		    	</table>
-		    
+	<div data-options="region:'north',border:true" style="height:90px;padding:1px">
+		<div style="padding:5px 5px 5px 5px">
+	    	<table style="width:100%;" cellpadding="1" cellspacing="10"	>
+	    		<tr>
+	    			<td style="text-align:right">菜单名</td>
+	    			<td><input class="easyui-textbox" type="text" name="name"></input></td>
+	    			
+	    			<td style="text-align:right">创建时间</td>
+	    			<td><input id="createTime" class="easyui-datebox" name="createTime" type="text"></input></td>
+	    		</tr>
+	    	</table>
+	    
 		    <div style="text-align:center;padding:1px">
 		    	<a href="javascript:void(0)" class="easyui-linkbutton" onclick="getDataGrid();">查询</a>
 		    	<a href="javascript:void(0)" class="easyui-linkbutton" onclick="reset();">重置</a>
 		    </div>
-		    </div>
-		</div>
-		
-		<div data-options="region:'center', border:false">
-			<table id="dg" style="width:100%; height: 100%"></table>
-		</div>	
-	</form>
+	    </div>
+	</div>
+	
+	<div data-options="region:'center', border:false">
+		<table id="dg" style="width:100%; height: 100%"></table>
+	</div>	
 </div>
