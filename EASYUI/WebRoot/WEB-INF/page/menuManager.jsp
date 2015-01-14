@@ -61,5 +61,5 @@
 	
 	<div data-options="region:'center', border:false">
 		<table id="dg" style="width:100%; height: 100%"></table>
-	</div>	
+	</div>
 </div>
